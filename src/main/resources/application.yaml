@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:mysql://59.110.162.184:6603/SSM?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 203731
+    driver-class-name: com.mysql.jdbc.Driver
+    #    type ???????????Druid,c3p0?
+    #    type:
