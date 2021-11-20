@@ -30,11 +30,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/level2/**").hasRole("vip2")
                 .antMatchers("/level3/**").hasRole("vip3");
 
-        //没有权限返回登录页面
-        http.formLogin();
+        //没有权限返回登录页面 （定制登录页面）
+        http.formLogin().loginPage("/toLogin");
 
         //开启注销功能 (注销后去首页)
-        http.logout().logoutUrl("/");
+        //防止网站被攻击: get post
+//        http.csrf().disable();  //关闭csrf功能
+        http.logout().logoutSuccessUrl("/");
+
+        //开启记住我功能
+        http.rememberMe().rememberMeParameter("remember");
     }
 
     //认证功能
